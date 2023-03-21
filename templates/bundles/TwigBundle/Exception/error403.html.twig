@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section>
+        <article class="artykul">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                <h3>Hej! Uważaj co robisz. :|</h3>
+                <p>
+                    Prawdopodobnie próbujesz dostać się na stronę przeznaczoną dla użytkowników z wyższą grupą albo to my coś popsuliśmy. <a href="{{ path('home') }}">Wróć na stronę główną</a>.
+                </p>
+
+            </div>
+        </article>
+    </section>
+{% endblock %}

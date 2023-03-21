@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section>
+
+        <article class="artykul">
+
+
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                {{ form(form) }}
+                <a href="{{ path('profile') }}" class="btn btn-danger">Powrót</a>
+            </div>
+
+
+        </article>
+
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ news.title }} - Artykuł - BLOG{% endblock %}
+
+{% block body %}
+
+
+
+    <section>
+
+
+        <article class="artykul shadow p-3 mb-5 bg-white rounded">
+            <h2 class="artykul_title">
+                {% if news.isDelete %}
+                    <span class="badge badge-danger text-wrap p-2">Usunięto</span>
+                {% endif %}
+                {{ news.title }}
+            </h2>
+            <span class="artykul_author">opublikowano
+                {{ news.PublishedAt|date("d/m/Y H:i:s") }} przez
+                {{ news.author.username }}{% if news.editedAt %} | Edytowano {{ news.editedAt|date("d/m/Y H:i:s") }}{% endif %} | Kategoria:
+                {{ news.category }} | Uprawnieni (SYM): {{ nicknames }}
+{#       Najprostszy system listy z przecinkiem; wady: wyświetla za dużo przecinków   |   zastąpiono kodem w controlerze i wysłaniem zmiennej nicknames      #}
+{#                {% for NewsAccessList in news.NewsAccessList %}#}
+{#                    {{ NewsAccessList.username }},#}
+{#                {% endfor %}#}
+
+
+                {% if is_granted('edit', news) or is_granted('ROLE_ADMIN') %}
+                    <br>
+                    {% if news.isDelete %}
+                    <a href="{{ path('news_restore', {'id': news.id}) }}">Przywróć</a>
+                    {% else %}
+                        <a href="{{ path('news_edit', {'id': news.id}) }}">Edytuj</a> |
+                        <a href="{{ path('news_delete', {'id': news.id}) }}">Usuń</a>
+                    {% endif %}
+                {% endif %}
+
+            </span>
+            <div class="artykul_full">
+                {{ news.body|raw }}
+            </div>
+
+        </article>
+
+
+
+
+    </section>
+
+
+{% endblock %}

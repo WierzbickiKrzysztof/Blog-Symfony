@@ -1,0 +1,49 @@
+<header>
+
+    <nav class="navbar navbar-expand-xl navbar-custom py-0 border-bottom-blue">
+
+        <a class="navbar-brand" href="{{ path('home') }}">Anczeje</a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_menu" aria-controls="main_menu" aria-expandend="false" aria-label="Przełącznik nawigacji">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="main_menu">
+
+
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item"><a class="nav-link" href="{{ path('home') }}">Strona główna</a></li>
+
+                {% if is_granted('ROLE_USERB') %}
+
+                <li class="nav-item"><a class="nav-link" href="{{ path('news_by_cat', {'category': 'Książki'}) }}">Książki</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('news_by_cat', {'category': 'Zadania'}) }}">Zadania</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('news_by_cat', {'category': 'Sieci'}) }}">Sieci</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('news_by_cat', {'category': 'CPP'}) }}">C++</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="{{ path('news_add') }}">Dodaj artykuł</a></li>
+                <li class="nav-item"><a class="nav-link" href="upload.php">Dodaj plik</a></li>
+
+
+                <!--
+
+                <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Wycieki sprawdzianów</a></li>
+-->
+
+
+                {% endif %}
+
+            </ul>
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a class="btn btn-primary mb-1 mr-2" href="{{ path('profile') }}" role="button">Twój profil - {{ app.user.username }}</a></li>
+                <a class="btn btn-success mb-1" href="{{ path('app_logout') }}" role="button">Wyloguj</a></li>
+            {% endif %}
+        </div>
+    </nav>
+
+
+</header>

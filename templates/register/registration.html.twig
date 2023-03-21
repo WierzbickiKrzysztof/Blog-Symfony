@@ -1,0 +1,10 @@
+{% extends('base.html.twig') %}
+
+{% block title %}Zarejestruj się - BLOG{% endblock %}
+
+{% block body %}
+    <article class="artykul shadow p-3 mb-5 bg-white rounded">
+        <h2 class="artykul_title">Nowe konto</h2>
+        <p>{{ form(form) }}</p>
+    </article>
+{% endblock %}

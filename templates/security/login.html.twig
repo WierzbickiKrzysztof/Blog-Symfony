@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Logowanie - BLOG{% endblock %}
+
+{% block body %}
+
+
+    <section>
+
+
+        <article class="artykul">
+
+
+            <div class="shadow p-3 mb-5 bg-white rounded">
+
+                <a href="{{ path('connect_facebook_start') }}" class="btn btn-block btn-social btn-facebook">
+                    <span class="fab fa-facebook-f"></span> Zaloguj się z Facebook
+                </a>
+
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    <label for="inputUsername" class="sr-only">Username</label>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+
+                    {#
+                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html
+
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" name="_remember_me"> Remember me
+                            </label>
+                        </div>
+                    #}
+
+                    <button class="btn btn-lg btn-primary" type="submit">
+                        Sign in
+                    </button>
+                </form>
+
+
+            </div>
+
+
+        </article>
+
+
+    </section>
+{% endblock %}

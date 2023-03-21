@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section>
+        <article class="artykul">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                <h3>Nie znaleziono strony, której szukasz. :/</h3>
+                <p>
+                    Nam też jest przykro, ale nie możemy jej znaleźć. Sprawdź poprawność adresu albo <a href="{{ path('home') }}">wróć na stronę główną</a>.
+                </p>
+
+            </div>
+        </article>
+    </section>
+{% endblock %}

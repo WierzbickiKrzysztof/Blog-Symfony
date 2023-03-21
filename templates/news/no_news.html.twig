@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section>
+        <article class="artykul">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+                <h3>Przykro nam. :(</h3>
+                <p>
+                    W tej kategorii nie ma żadnych newsów. Może czas coś dodać? Możesz też <a href="{{ path('home') }}">wrócić na stronę główną</a>.
+                </p>
+
+            </div>
+        </article>
+    </section>
+{% endblock %}

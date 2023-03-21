@@ -1,0 +1,41 @@
+<article class="artykul">
+
+
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="row">
+
+            <div class="col-10">
+                {% if one_news.isDelete %}
+                <span class="badge badge-danger text-wrap p-2">Usunięto</span>
+                {% endif %}
+                <a class="artykul_title" href="{{ path('news_show', {'id': one_news.id}) }}">
+                    {{ one_news.title }}</a>
+
+                <div class="artykul_author">opublikowano
+                    {{ one_news.PublishedAt|date("d/m/Y H:i:s") }} przez
+                    {{ one_news.author.username }}{% if one_news.editedAt %} | Edytowano {{ one_news.editedAt|date("d/m/Y H:i:s") }}{% endif %}
+
+
+
+                    <br>
+                </div>
+            </div>
+
+            <div class="col text-center">
+
+                <span class="badge badge-primary text-wrap p-3">
+                            {{ one_news.category }}
+                </span>
+
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</article>

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category }} - Kategoria - BLOG{% endblock %}
+
+{% block body %}
+    <section>
+
+
+
+    {% for one_news in news %}
+
+
+        {% include('inc/article_list.html.twig') %}
+
+
+    {% endfor %}
+
+
+
+    </section>
+{% endblock %}

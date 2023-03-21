@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section>
+    <article class="artykul">
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <h3>Upss! Wystąpił błąd</h3>
+            <h4>Serwer zwrócił błąd: "{{ status_code }} {{ status_text }}".</h4>
+
+            <p>
+                Coś się zepsuło. Daj znać podczas gdzie występuje ten błąd.
+                Naprawimy tak szybko jak tylko się da.
+            </p>
+        </div>
+    </article>
+</section>
+{% endblock %}

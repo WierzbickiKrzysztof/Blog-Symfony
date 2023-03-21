@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Strona Główna - BLOG{% endblock %}
+
+
+{% block body %}
+    <section>
+
+        <article class="artykul shadow-none p-3 mb-5 bg-light rounded">
+
+            <h3>
+               Witaj, {{ app.user.username }}!
+
+            </h3>
+            <p class="m-0">
+                Oto miejsce w którym będzie wszystko co potrzebne...
+            </p>
+
+
+        </article>
+
+
+    {% for one_news in news %}
+
+            {% include('inc/article_list.html.twig') %}
+
+    {% endfor %}
+
+
+
+    </section>
+{% endblock %}

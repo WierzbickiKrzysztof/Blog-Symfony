@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Twój profil - BLOG{% endblock %}
+
+{% block body %}
+    <section>
+
+
+        <article class="artykul shadow-none p-3 mb-5 bg-light rounded">
+
+            <h3>
+                Panel Użytkownika - Witaj {{ user_data.username }}!
+
+            </h3>
+            <p class="m-0">
+                W tym miejscu możesz zobaczyć swój profil, zmienić hasło, ustawić nick lub sprawdzić swoje artykuły.
+
+            </p>
+
+
+        </article>
+
+
+       <article class="artykul">
+
+
+           <div class="shadow p-3 mb-5 bg-white rounded">
+               Twoja nazwa użytkownika: {{ user_data.username }} | <a href="{{ path('change_nickname') }}">Zmień nazwę użytkownika</a>
+               <br>
+               Twój adres e-mail: {{ user_data.email }} | <a href="{{ path('change_email') }}">Zmień adres e-mail</a>
+               <br>
+               Twoje ID: {{ user_data.id }}
+               <br>
+               {% if user_data.facebookId != null %}
+               Twoje konto BLOG jest połączone z kontem Facebook o ID: {{ user_data.facebookId }} | Możesz odłączyć swoje konto Facebook i ustawić hasło do logowania (jeśli zapomnisz hasła utracisz dostęp do konta: <a href="{{ path('disconnect_fb') }}">Odłącz konto Facebook</a>.
+               {% else %}
+               Twoje konto BLOG nie jest połączone z kontem Facebook. Ponowne połączenie kont jest nie możliwe.
+               {% endif %}
+               <br>
+               Twoje grupy: {% for roles in user_data.roles %}{{ roles }}, {% endfor %}
+
+
+          </div>
+
+
+        </article>
+
+
+    </section>
+{% endblock %}
